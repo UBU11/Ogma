@@ -1,13 +1,13 @@
-# Omu: On-Device Multimodal Malayalam-to-English Translator
+# Ogmu: On-Device Multimodal Malayalam-to-English Translator
 
 ## Overview
-Omu is a high-performance, privacy-focused Android application designed for real-time, on-device translation of spoken Malayalam into natural English. By leveraging state-of-the-art multimodal Large Language Models (LLMs) and local Text-to-Speech (TTS) engines, Omu provides a seamless "hear-and-speak" experience without requiring an internet connection.
+Ogmu is a high-performance, privacy-focused Android application designed for real-time, on-device translation of spoken Malayalam into natural English. By leveraging state-of-the-art multimodal Large Language Models (LLMs) and local Text-to-Speech (TTS) engines, Ogmu provides a seamless "hear-and-speak" experience without requiring an internet connection.
 
 ## Problem Statement
 Real-time translation for regional languages like Malayalam often suffers from high latency, reliance on cloud services (raising privacy concerns), and poor handling of natural, spoken dialect. Most existing solutions require an active data connection, making them unreliable in areas with poor connectivity.
 
 ## Solution
-Omu solves these challenges by running the entire translation pipeline locally on the Android device:
+Ogmu solves these challenges by running the entire translation pipeline locally on the Android device:
 1.  **Voice Activity Detection (VAD):** Silently monitors for speech using Silero VAD.
 2.  **Multimodal Translation:** Uses **Gemma 4 E2B** to translate raw audio PCM directly into English text.
 3.  **Natural TTS:** Synthesizes the translation back into high-quality speech using the **SuperTonic 3** engine with customized voice profiles.
@@ -27,13 +27,13 @@ Omu solves these challenges by running the entire translation pipeline locally o
 - **Audio:** Android AudioRecord (Input) and AudioTrack (Output)
 
 ## Model Loading Instructions
-Omu requires specific model assets to be loaded onto the device's external storage to function.
+Ogmu requires specific model assets to be loaded onto the device's external storage to function.
 
 ### 1. Gemma 4 E2B (Translation)
 - **Model Format:** `.litertlm` (LiteRT-LM bundle)
 - **Required File:** `gemma-4-e2b-audio.litertlm` (or similar naming pattern)
 - **Location:** Place the file in your device's app-specific directory:
-  `/Android/data/com.example.omu/files/`
+  `/Android/data/com.example.Ogmu/files/`
 - **Verification:** The app will log "Using Gemma model: ..." on startup if found.
 
 ### 2. SuperTonic 3 (TTS)
@@ -42,7 +42,7 @@ Omu requires specific model assets to be loaded onto the device's external stora
   - `onnx/duration_predictor.onnx`, `onnx/text_encoder.onnx`, `onnx/vector_estimator.onnx`, `onnx/vocoder.onnx`
   - `voice_styles/F1.json` (and other style files)
 - **Loading:** These assets are typically bundled in the `assets/android_tts_assets/` folder of the project. If you are updating them manually, ensure the directory structure matches:
-  `/Android/data/com.example.omu/files/android_tts_assets/onnx/`
+  `/Android/data/com.example.Ogmu/files/android_tts_assets/onnx/`
 
 ### 3. Silero VAD
 - **File:** `silero_vad.onnx`
@@ -54,7 +54,7 @@ Omu requires specific model assets to be loaded onto the device's external stora
 1.  **Clone the Repo:**
     ```bash
     git clone https://github.com/UBU11/codex-hackthon
-    cd Omu
+    cd Ogmu
     ```
 2.  **Open in Android Studio:**
     - Import the project and let Gradle sync.
