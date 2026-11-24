@@ -48,8 +48,6 @@ Omu requires specific model assets to be loaded onto the device's external stora
 - **File:** `silero_vad.onnx`
 - **Location:** Bundled in the app's `assets/` folder and loaded automatically at runtime.
 
-## Screenshots
-*(Add screenshots here showing the translation history and voice enrollment screens)*
 
 ## How to Run Locally
 
